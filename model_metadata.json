@@ -1,0 +1,20 @@
+{
+  "model_name": "Violence Detection CNN-LSTM",
+  "dataset": "Real Life Violence Situations Dataset",
+  "classes": [
+    "NonViolence",
+    "Violence"
+  ],
+  "input_shape": {
+    "frames": 10,
+    "feature_dim": 1280
+  },
+  "cnn_backbone": "MobileNetV2 (frozen, pre-extracted features)",
+  "classifier": "LSTM(128) \u2192 LSTM(64) \u2192 Dense(128) \u2192 Dense(64) \u2192 Dense(2)",
+  "test_accuracy": 0.9666666388511658,
+  "test_loss": 0.14862343668937683,
+  "auc_score": 0.9906222222222222,
+  "preprocessing": "Frames resized to 96x96, normalized [0,1], MobileNetV2 features extracted",
+  "total_videos_used": 2000,
+  "note": "This model expects MobileNetV2 pre-extracted features as input, not raw frames. Use predict_violence() function for end-to-end inference."
+}
